@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prueba Formulario Rapo Creative</title>
+<style>
+body{margin:0;background:#0E0D12;color:#F5EFE3;font-family:Arial,sans-serif}
+main{max-width:720px;margin:40px auto;padding:20px}
+.card{background:#17151d;border:1px solid #342f3a;border-radius:18px;padding:24px}
+h1{margin:0 0 8px} .gold{color:#E3A63D}
+p{color:#aaa3af}
+label{display:block;margin:16px 0 7px;font-weight:700}
+input,textarea,select{width:100%;box-sizing:border-box;padding:13px;border-radius:10px;border:1px solid #403947;background:#111017;color:#fff}
+button{width:100%;padding:15px;margin-top:22px;border:0;border-radius:11px;background:#E3A63D;color:#111;font-weight:800;font-size:16px;cursor:pointer}
+small{color:#aaa3af}
+</style>
+</head>
+<body>
+<main>
+<div class="card">
+<div class="gold"><strong>RAPO CREATIVE</strong></div>
+<h1>Prueba de envío</h1>
+<p>Este enlace es solamente para comprobar que las postulaciones llegan a <strong>creativerapo@gmail.com</strong>.</p>
+<form action="https://formsubmit.co/creativerapo@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="PRUEBA - Formulario Rapo Creative">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://raw.githack.com/cristianramirez-mateo/rapo-sitio-web.-/main/gracias.html">
+<input type="text" name="_honey" style="display:none">
+<label>Nombre completo *</label><input name="Nombre completo" required>
+<label>Edad *</label><input type="number" min="18" name="Edad" required>
+<label>Email *</label><input type="email" name="Email" required>
+<label>Instagram *</label><input type="url" name="Instagram" placeholder="https://instagram.com/..." required>
+<label>Mensaje de prueba</label><textarea name="Mensaje de prueba">Prueba de envío desde el nuevo formulario Rapo Creative.</textarea>
+<label><input type="checkbox" required style="width:auto"> Confirmo que soy mayor de 18 años.</label>
+<button type="submit">ENVIAR PRUEBA</button>
+</form>
+<p><small>Si es el primer envío, FormSubmit puede mandar un email de activación antes de entregar los formularios.</small></p>
+</div>
+</main>
+</body>
+</html>
