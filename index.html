@@ -1,175 +1,29 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rapo Creative — Postulación para Creadores (Prueba)</title>
-<style>
-:root{--bg:#0E0D12;--panel:#17151d;--panel2:#1d1a23;--gold:#E3A63D;--cream:#F5EFE3;--muted:#A8A3AE;--line:#332e3b;--ok:#b9efc8;--err:#ffc2c2}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,rgba(227,166,61,.12),transparent 26rem),var(--bg);color:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
-main{width:min(960px,calc(100% - 24px));margin:0 auto;padding:34px 0 70px}.hero{padding:8px 4px 22px}.brand{color:var(--gold);font-size:12px;letter-spacing:.18em;font-weight:800}.hero h1{margin:5px 0 10px;font-size:clamp(30px,5vw,48px);line-height:1.08}.hero p{color:var(--muted);max-width:720px}.test{display:inline-block;margin-top:8px;padding:8px 11px;border-radius:999px;background:rgba(227,166,61,.10);border:1px solid rgba(227,166,61,.35);color:#f3d69c;font-size:12px;font-weight:700}
-.langs{display:flex;gap:7px;margin-top:18px}.lang{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:7px 12px;font-weight:800;cursor:pointer}.lang.active{background:var(--gold);color:#17131b;border-color:var(--gold)}
-form{display:grid;gap:18px}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
-.heading{display:flex;gap:13px;align-items:flex-start;margin-bottom:19px}.num{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:rgba(227,166,61,.12);color:var(--gold);font-weight:800;font-size:12px}.heading h2{margin:0;font-size:20px}.heading p{margin:4px 0 0;color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.full{grid-column:1/-1}
-label{display:grid;gap:7px;color:#eee7dc;font-size:14px;font-weight:700}input,select,textarea{width:100%;border:1px solid #3a3442;background:#111017;color:var(--cream);border-radius:11px;padding:12px 13px;font:inherit;outline:none}textarea{resize:vertical;min-height:74px}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(227,166,61,.12)}input::placeholder,textarea::placeholder{color:#746e7b}
-.check{display:flex;align-items:flex-start;gap:10px}.check input{width:19px;height:19px;margin-top:2px;accent-color:var(--gold)}.check label{display:block;font-weight:500}
-button.submit{width:100%;border:0;border-radius:13px;padding:16px;background:var(--gold);color:#17131b;font-size:16px;font-weight:900;cursor:pointer}button.submit:disabled{opacity:.6;cursor:not-allowed}
-#result{display:none;padding:14px;border-radius:11px;font-weight:700}.ok{display:block!important;background:#13371f;color:var(--ok);border:1px solid #285d38}.err{display:block!important;background:#3c1717;color:var(--err);border:1px solid #704040}
-.note{text-align:center;color:var(--muted);font-size:12px;margin:0}.hp{display:none!important}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:17px}}
-</style>
-</head>
-<body>
-<main>
-<section class="hero">
-  <div class="brand">RAPO CREATIVE</div>
-  <h1 id="pageTitle">Postulación para Creadores</h1>
-  <p id="pageIntro">Completá el formulario con información real y actualizada.</p>
-  
-  <div class="langs">
-    <button class="lang active" type="button" data-lang="ES">ES</button>
-    <button class="lang" type="button" data-lang="EN">EN</button>
-    <button class="lang" type="button" data-lang="PT">PT</button>
-  </div>
-</section>
-
-<form id="applicationForm">
-<input type="hidden" name="access_key" value="8ae5354d-b892-465c-84c2-dd9c4e1b7db2">
-<input type="hidden" name="subject" value="Nueva postulación Rapo Creative">
-<input type="hidden" name="Idioma" id="idioma" value="ES">
-<input type="checkbox" name="botcheck" class="hp">
-
-<section class="card">
-<div class="heading"><div class="num">01</div><div><h2>Datos básicos</h2><p>Información personal y de contacto.</p></div></div>
-<div class="grid">
-<label>Nombre completo *<input name="Nombre completo" autocomplete="name" required></label>
-<label>Edad *<input type="number" name="Edad" min="18" max="99" required></label>
-<label>Nacionalidad *<input name="Nacionalidad" required></label>
-<label>Email *<input type="email" name="Email" autocomplete="email" required></label>
-<label class="full">Teléfono *<input type="tel" name="Teléfono" autocomplete="tel" required></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">02</div><div><h2>Redes sociales</h2><p>Podés escribir el usuario, pegar el enlace o indicar “No”.</p></div></div>
-<div class="grid">
-<label>Instagram *<input name="Instagram" placeholder="@usuario o enlace" required></label>
-<label>Seguidores Instagram *<input type="number" name="Seguidores Instagram" min="0" required></label>
-<label>Telegram<input name="Telegram" placeholder="@usuario, enlace o No"></label>
-<label>TikTok<input name="TikTok" placeholder="@usuario, enlace o No"></label>
-<label>Seguidores TikTok<input type="number" name="Seguidores TikTok" min="0"></label>
-<label>Twitter/X<input name="Twitter/X" placeholder="@usuario, enlace o No"></label>
-<label>Seguidores Twitter/X<input type="number" name="Seguidores Twitter/X" min="0"></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">03</div><div><h2>Recursos y disponibilidad</h2><p>Herramientas, tiempo disponible y expectativas.</p></div></div>
-<div class="grid">
-<label>Smartphone *<input name="Smartphone" required></label>
-<label>Computadora e internet *
-<select name="Computadora e internet" required><option value="">Seleccionar</option><option>Tengo ambos</option><option>Solo computadora</option><option>Solo internet</option><option>No tengo</option></select></label>
-<label class="full">Disponibilidad *<textarea name="Disponibilidad" required></textarea></label>
-<label>Velocidad de respuesta *
-<select name="Velocidad de respuesta" required><option value="">Seleccionar</option><option>Rápido</option><option>Normal</option><option>Limitado</option></select></label>
-<label>Ingreso deseado en USD *<input type="number" name="Ingreso deseado en USD" min="0" step="1" required></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">04</div><div><h2>Producción de contenido</h2><p>Cantidad aproximada que podrías producir.</p></div></div>
-<div class="grid">
-<label>Fotos para todo público<input type="number" name="Fotos para todo público" min="0"></label>
-<label>Fotos XXX<input type="number" name="Fotos XXX" min="0"></label>
-<label>Videos para todo público<input type="number" name="Videos para todo público" min="0"></label>
-<label>Videos XXX<input type="number" name="Videos XXX" min="0"></label>
-<label>Disfruta fotos y videos *
-<select name="Disfruta fotos y videos" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">05</div><div><h2>Viajes y lugar de grabación</h2><p>Disponibilidad para producir contenido.</p></div></div>
-<div class="grid">
-<label>Puede viajar *
-<select name="Puede viajar" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
-<label class="full">Comentario de viaje<textarea name="Comentario de viaje"></textarea></label>
-<label>Puede grabar en casa *
-<select name="Puede grabar en casa" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
-<label>Lugar de grabación<input name="Lugar de grabación"></label>
-<label>Tatuajes<input name="Tatuajes" placeholder="No / Sí, indicar zonas"></label>
-<label>Piercings<input name="Piercings" placeholder="No / Sí, indicar zonas"></label>
-<label>Nivel de inglés *
-<select name="Nivel de inglés" required><option value="">Seleccionar</option><option>0</option><option>Básico</option><option>Intermedio</option><option>Avanzado</option></select></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">06</div><div><h2>Experiencia en OnlyFans</h2><p>Experiencia previa y modalidad de trabajo.</p></div></div>
-<div class="grid">
-<label>Experiencia en OnlyFans *
-<select name="Experiencia en OnlyFans" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
-<label>Ventas del último mes en USD<input type="number" name="Ventas del último mes en USD" min="0" step="0.01"></label>
-<label>Cuentas gestionadas<input type="number" name="Cuentas gestionadas" min="0"></label>
-<label>Modalidad de trabajo *
-<select name="Modalidad de trabajo" required><option value="">Seleccionar</option><option>Sola</option><option>Con agencia</option><option>Con equipo</option></select></label>
-<label>Permiso de agencia
-<select name="Permiso de agencia"><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>No aplica</option></select></label>
-<label>Acceso a las cuentas *
-<select name="Acceso a las cuentas" required><option value="">Seleccionar</option><option>Mantener acceso</option><option>Acceso compartido</option><option>A definir</option></select></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">07</div><div><h2>Límites e intereses</h2><p>Preferencias y límites personales.</p></div></div>
-<div class="grid">
-<label class="full">Límites de contenido *<textarea name="Límites de contenido" required></textarea></label>
-<label class="full">Hobbies<textarea name="Hobbies"></textarea></label>
-<label>Contenido SFW con hobbies *
-<select name="Contenido SFW con hobbies" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
-<label>Países a bloquear *<input name="Países a bloquear" required></label>
-<label>Acepta caracterización *
-<select name="Acepta caracterización" required><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>Depende</option></select></label>
-</div>
-</section>
-
-<section class="card">
-<div class="heading"><div class="num">08</div><div><h2>Consentimiento</h2><p>Confirmación final de la postulación.</p></div></div>
-<div class="check">
-<input id="consent" type="checkbox" name="Consentimiento" value="Sí" required>
-<label for="consent">Consentimiento *</label>
-</div>
-</section>
-
-<div id="result"></div>
-<button class="submit" id="submitBtn" type="submit">ENVIAR POSTULACIÓN DE PRUEBA</button>
-<p class="note">Esta copia usa Web3Forms. El formulario original de formulario.rapocreative.com.ar permanece sin cambios.</p>
-</form>
-</main>
+<!DOCTYPE html><html lang="es"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/assets/rapo-creative-logo.png"/><link rel="stylesheet" href="/assets/index-D8FsfUHh.css" data-rsc-css-href="/assets/index-D8FsfUHh.css" data-precedence="vite-rsc/importer-resources"/><link rel="modulepreload" href="/assets/layout-segment-context-DmSmrq-c.js" crossorigin=""/><link rel="modulepreload" href="/assets/rolldown-runtime-S-ySWqyJ.js" crossorigin=""/><link rel="modulepreload" href="/assets/index-DpbpyHqc.js" crossorigin=""/><link rel="modulepreload" href="/assets/framework-CXnKph_e.js" crossorigin=""/><link rel="modulepreload" href="/assets/rapo-application-form-CdAP70Q3.js" crossorigin=""/><title>Rapo Creative — Formulario de postulación</title><meta name="description" content="Formulario de postulación para creadores de Rapo Creative."/><meta property="og:title" content="Rapo Creative — Postulación para Creadores"/><meta property="og:description" content="Completá tu postulación para trabajar con Rapo Creative."/><meta property="og:type" content="website"/><meta property="og:image" content="https://postulacion.rapocreative.com.ar/og.png"/><meta property="og:image:width" content="1731"/><meta property="og:image:height" content="909"/><meta property="og:image:alt" content="Rapo Creative — Postulación para Creadores"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Rapo Creative — Postulación para Creadores"/><meta name="twitter:description" content="Completá tu postulación para trabajar con Rapo Creative."/><meta name="twitter:image" content="https://postulacion.rapocreative.com.ar/og.png"/><link rel="shortcut icon" href="https://postulacion.rapocreative.com.ar/assets/rapo-creative-logo.png"/><link rel="icon" href="https://postulacion.rapocreative.com.ar/assets/rapo-creative-logo.png"/><script>self.__VINEXT_RSC_PARAMS__={}</script><script>self.__VINEXT_RSC_NAV__={"pathname":"/","searchParams":[]}</script><link rel="modulepreload" href="/assets/index-DpbpyHqc.js" />
 <script>
-const form=document.getElementById('applicationForm');
-const result=document.getElementById('result');
-const btn=document.getElementById('submitBtn');
-const idioma=document.getElementById('idioma');
-document.querySelectorAll('.lang').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.lang').forEach(x=>x.classList.remove('active'));
- b.classList.add('active'); idioma.value=b.dataset.lang;
-}));
-form.addEventListener('submit',async(e)=>{
- e.preventDefault(); result.className=''; result.style.display='none'; result.textContent='';
- if(!form.checkValidity()){form.reportValidity();return}
- btn.disabled=true;btn.textContent='ENVIANDO...';
- try{
-  const obj=Object.fromEntries(new FormData(form).entries());
-  obj.Email=obj.Email||''; obj.email=obj.Email;
-  const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(obj)});
-  const data=await res.json().catch(()=>({}));
-  if(res.ok&&data.success){result.textContent='✓ Postulación enviada correctamente. Revisá creativerapo@gmail.com.';result.className='ok';form.reset();idioma.value='ES'}
-  else{result.textContent='Error Web3Forms: '+(data.message||('HTTP '+res.status));result.className='err'}
- }catch(err){result.textContent='Error de conexión: '+err.message;result.className='err'}
- finally{btn.disabled=false;btn.textContent='ENVIAR POSTULACIÓN DE PRUEBA'}
-});
-</script>
-</body>
-</html>
+(function(){
+  const originalFetch = window.fetch.bind(window);
+  window.fetch = async function(input, init){
+    const url = typeof input === "string" ? input : (input && input.url ? input.url : "");
+    if (url === "https://formsubmit.co/ajax/creativerapo@gmail.com") {
+      let data = {};
+      try { data = JSON.parse((init && init.body) || "{}"); } catch(e) {}
+      const payload = Object.assign({}, data, {
+        access_key: "8ae5354d-b892-465c-84c2-dd9c4e1b7db2",
+        subject: data._subject || "Nueva postulación Rapo Creative",
+        email: data.Email || data._replyto || "",
+        from_name: "Rapo Creative"
+      });
+      delete payload._subject;
+      delete payload._template;
+      delete payload._captcha;
+      delete payload._replyto;
+      return originalFetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {"Content-Type":"application/json","Accept":"application/json"},
+        body: JSON.stringify(payload)
+      });
+    }
+    return originalFetch(input, init);
+  };
+})();
+</script></head><body class="antialiased"><main><header class="hero"><div class="hero__glow"></div><nav class="topbar"><a href="#formulario" class="brand-mini">RAPO <span>CREATIVE</span></a><div class="language-switcher"><button type="button" class="is-active">Español</button><button type="button" class="">English</button><button type="button" class="">Português</button></div></nav><div class="hero__content"><img src="/assets/rapo-creative-logo.png" alt="Rapo Creative" class="hero__logo"/><div><p class="eyebrow">Rapo Creative · Convocatoria</p><h1>Postulación para Creadores</h1><p class="hero__intro">Completá el formulario con información real y actualizada. Los campos marcados con * son obligatorios.</p></div></div></header><section class="form-shell" id="formulario"><aside class="privacy-note"><span>◆</span><div><strong>Información confidencial</strong><p>Tus respuestas serán utilizadas únicamente para evaluar tu postulación.</p></div></aside><form class="application-form"><input class="honeypot" tabindex="-1" autoComplete="off" name="website"/><section class="form-section"><div class="section-heading"><span>01</span><div><h2>1. Datos obligatorios</h2><p>Información personal, recursos y disponibilidad.</p></div></div><div class="field-grid"><label class="field"><span class="field__label">Nombre completo<b> *</b></span><input class="control" required="" autoComplete="name" name="Nombre"/></label><label class="field"><span class="field__label">Edad<b> *</b></span><input class="control" type="number" min="18" max="99" required="" name="Edad"/></label><label class="field"><span class="field__label">Nacionalidad (indicá todas)<b> *</b></span><input class="control" required="" name="Nacionalidad"/></label><label class="field"><span class="field__label">Correo electrónico<b> *</b></span><input class="control" type="email" required="" autoComplete="email" name="Email"/></label><label class="field"><span class="field__label">Teléfono completo (incluí código de país)<b> *</b></span><input class="control" type="tel" required="" autoComplete="tel" name="Telefono"/></label><label class="field"><span class="field__label">Usuario de Instagram<b> *</b></span><input class="control" required="" name="Instagram"/></label><label class="field"><span class="field__label">Seguidores aproximados en Instagram<b> *</b></span><input class="control" type="number" min="0" required="" name="Seguidores_Instagram"/></label><label class="field"><span class="field__label">Modelo de smartphone actual<b> *</b></span><select class="control" name="Modelo_Smartphone" required=""><option value="" selected="">Seleccionar…</option><option>iPhone 17 Pro Max</option><option>iPhone 17 Pro</option><option>iPhone 17 Plus</option><option>iPhone 17</option><option>iPhone 16 Pro Max</option><option>iPhone 16 Pro</option><option>iPhone 16 Plus</option><option>iPhone 16</option><option>iPhone 15 Pro Max</option><option>iPhone 15 Pro</option><option>iPhone 15 Plus</option><option>iPhone 15</option><option>iPhone 14 Pro Max</option><option>iPhone 14 Pro</option><option>iPhone 14 Plus</option><option>iPhone 14</option><option>iPhone 13 Pro Max</option><option>iPhone 13 Pro</option><option>iPhone 13</option><option>iPhone 12 Pro Max</option><option>iPhone 12 Pro</option><option>iPhone 12</option><option>iPhone 11 Pro Max</option><option>iPhone 11 Pro</option><option>iPhone 11</option><option>Samsung Galaxy S20 / S20+ / S20 Ultra</option><option>Samsung Galaxy S21 / S21+ / S21 Ultra</option><option>Samsung Galaxy S22 / S22+ / S22 Ultra</option><option>Samsung Galaxy S23 / S23+ / S23 Ultra</option><option>Samsung Galaxy S24 / S24+ / S24 Ultra</option><option>Xiaomi Mi 11 / 11T / Pro / Ultra</option><option>Xiaomi 12 / 12T / Pro / Ultra</option><option>Xiaomi 13 / 13T / Pro / Ultra</option><option>Xiaomi 14 / Pro / Ultra</option><option>Redmi Note 10 / 11 / 12 / 13 Series</option><option>Poco F3 / F4 / F5 / F6 Series</option><option value="Otros">Otros (especificar)</option></select></label></div><div class="subsection"><h3>¿Cuántas fotos y videos ya tenés realizados?<!-- --> *</h3><p>Si no tenés material en una categoría, escribí 0.</p><div class="count-grid"><label class="field"><span class="field__label">Fotos para todo público<b> *</b></span><input class="control" type="number" min="0" required="" name="Fotos_SFW"/></label><label class="field"><span class="field__label">Fotos XXX<b> *</b></span><input class="control" type="number" min="0" required="" name="Fotos_XXX"/></label><label class="field"><span class="field__label">Videos para todo público<b> *</b></span><input class="control" type="number" min="0" required="" name="Videos_SFW"/></label><label class="field"><span class="field__label">Videos XXX<b> *</b></span><input class="control" type="number" min="0" required="" name="Videos_XXX"/></label></div></div><div class="field-grid"><label class="field"><span class="field__label">¿Disfrutás haciendo fotos y videos?<b> *</b></span><select class="control" name="Disfruta_Fotos_Videos" required=""><option value="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label><label class="field"><span class="field__label">¿Contás con computadora e internet estable en casa?<b> *</b></span><select class="control" name="PC_Internet" required=""><option value="">Seleccionar…</option><option value="Tengo solo Computadora">Tengo solo computadora</option><option value="Tengo solo Internet">Tengo solo internet</option><option value="Tengo ambos">Tengo computadora e internet</option></select></label><label class="field field--wide"><span class="field__label">¿Qué días y horarios tenés disponibles para trabajar?<b> *</b></span><span class="field__hint">Ejemplo: lunes a sábado, 5 horas por día.</span><input class="control" required="" name="Disponibilidad_Dias_Horarios"/></label><label class="field field--wide"><span class="field__label">Cuando recibís un mensaje laboral, ¿cuánto tardás en responder?<b> *</b></span><span class="field__hint">Rápido significa responder dentro de 1 o 2 horas en horario laboral.</span><select class="control" name="Velocidad_Respuesta_Laboral" required=""><option value="">Seleccionar…</option><option value="Rapido">Rápido, dentro de 1 o 2 horas</option><option value="Algunas horas">A veces tardo algunas horas</option><option value="Tardo bastante">Suelo tardar bastante</option></select></label><label class="field"><span class="field__label">Dinero en USD que te gustaría ganar por mes<b> *</b></span><div class="money-control"><span>USD</span><input type="number" min="0" required="" name="Dinero_Pretendido_USD"/></div></label><label class="field"><span class="field__label">¿Tenés disponibilidad para viajar a otros países para grabar contenido?</span><span class="field__hint">Todos los gastos estarán pagos.</span><select class="control" name="Puede_Viajar"><option value="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label><label class="field field--wide"><span class="field__label">Comentario sobre tu disponibilidad para viajar</span><textarea class="control control--textarea" name="Comentario_Viaje" rows="3"></textarea></label><label class="field"><span class="field__label">¿Podés hacer contenido en tu casa sin problemas?</span><select class="control" name="Contenido_En_Casa"><option value="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label><label class="field field--wide"><span class="field__label">¿Tenés un lugar bonito o adecuado para grabar? Describilo.</span><textarea class="control control--textarea" name="Lugar_Grabacion" rows="3"></textarea></label></div></section><section class="form-section"><div class="section-heading"><span>02</span><div><h2>2. Información adicional</h2><p>Redes sociales, experiencia, preferencias y límites.</p></div></div><div class="field-grid"><label class="field"><span class="field__label">Usuario de Telegram<b> *</b></span><span class="field__hint">Si no tenés Telegram, escribí NO.</span><input class="control" required="" name="Telegram"/></label><label class="field"><span class="field__label">Usuario de TikTok<b> *</b></span><span class="field__hint">Si no tenés TikTok, escribí NO.</span><input class="control" required="" name="TikTok"/></label><label class="field"><span class="field__label">Seguidores aproximados en TikTok</span><input class="control" type="number" min="0" name="Seguidores_TikTok"/></label><label class="field"><span class="field__label">Usuario de Twitter/X<b> *</b></span><span class="field__hint">Si no tenés Twitter/X, escribí NO.</span><input class="control" required="" name="Twitter"/></label><label class="field"><span class="field__label">Seguidores aproximados en Twitter/X</span><input class="control" type="number" min="0" name="Seguidores_X"/></label><label class="field field--wide"><span class="field__label">¿Tenés tatuajes? Indicá cuántos, tamaños y ubicaciones<b> *</b></span><textarea class="control control--textarea" name="Tatuajes" rows="3" required=""></textarea></label><label class="field"><span class="field__label">¿Tenés piercings? Indicá sus ubicaciones</span><input class="control" name="Piercings"/></label><label class="field"><span class="field__label">Nivel de inglés (del 0 al 10)</span><span class="field__hint">7, 8, 9 y 10 se consideran inglés fluido.</span><select class="control" name="Nivel_Ingles"><option value="">Seleccionar…</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></label><label class="field"><span class="field__label">¿Tenés experiencia previa en OnlyFans?</span><select class="control" name="Experiencia_OF"><option value="" selected="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label><label class="field"><span class="field__label">¿Cuántas cuentas de OnlyFans gestionás actualmente?</span><select class="control" name="Cuentas_OF_Gestionadas"><option value="" selected="">Seleccionar…</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label><label class="field field--wide"><span class="field__label">En las cuentas que gestionemos, ¿querés mantener el acceso o preferís gestión total sin acceso?<b> *</b></span><select class="control" name="Acceso_Cuentas_OF" required=""><option value="">Seleccionar…</option><option value="Mantener acceso">Quiero mantener el acceso</option><option value="Gestion total sin acceso">Prefiero gestión total sin acceso para mí</option></select></label><label class="field field--wide"><span class="field__label">Preferencias de contenido y límites</span><span class="field__hint">Escribí todo lo que no te gustaría hacer o grabar.</span><textarea class="control control--textarea" name="Preferencias_Limites" rows="4"></textarea></label><label class="field field--wide"><span class="field__label">Contanos cuáles son tus hobbies<b> *</b></span><span class="field__hint">¿Podrías grabar alguno? ¿Tenés un talento o una característica que te diferencie?</span><textarea class="control control--textarea" name="Hobbies" rows="5" required=""></textarea></label><label class="field"><span class="field__label">¿Harías contenido SFW relacionado con tus hobbies?<b> *</b></span><span class="field__hint">Contenido para todo público, sin desnudez ni contenido sexual.</span><select class="control" name="Contenido_SFW_Hobbies" required=""><option value="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label><label class="field field--wide"><span class="field__label">¿Qué países necesitás bloquear para que no puedan ver tu contenido?<b> *</b></span><span class="field__hint">Detallá todos. Si no necesitás bloquear ninguno, indicalo.</span><textarea class="control control--textarea" name="Paises_Bloqueo" rows="3" required=""></textarea></label><label class="field field--wide"><span class="field__label">¿Harías contenido caracterizada o disfrazada como un personaje de una película?<b> *</b></span><span class="field__hint">La caracterización y el maquillaje serían realizados por una profesional.</span><select class="control" name="Acepta_Caracterizacion" required=""><option value="">Seleccionar…</option><option value="Si">Sí</option><option value="No">No</option></select></label></div></section><label class="consent"><input type="checkbox" required="" name="Consentimiento" value="Si"/><span>Confirmo que la información es correcta y autorizo su uso para evaluar mi postulación.<!-- --> *</span></label><button class="submit-button" type="submit"><span>Enviar postulación</span><span>→</span></button></form></section><footer><p>Rapo Creative · Estrategia, crecimiento y gestión para creadores</p><a href="https://www.instagram.com/rapocreative/" target="_blank" rel="noreferrer">@rapocreative</a></footer></main><script id="_R_">import("/assets/index-DpbpyHqc.js")</script></body></html><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("2:I[\"8c0f216c4604\",[],\"Children\",1]\n3:I[\"15c18cfaeeff\",[],\"LayoutSegmentProvider\",1]\n4:I[\"8c0f216c4604\",[],\"Slot\",1]\n5:I[\"593f344dc510\",[],\"RedirectBoundary\",1]\n:HL[\"/assets/index-D8FsfUHh.css\",\"style\"]\n")</script><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("0:{\"__route\":\"route:/\",\"__interceptionContext\":null,\"__layoutIds\":[\"layout:/\"],\"__rootLayout\":\"/\",\"page:/\":\"$L1\",\"layout:/\":[[[[\"$\",\"link\",\"css:/assets/index-D8FsfUHh.css\",{\"rel\":\"stylesheet\",\"precedence\":\"vite-rsc/importer-resources\",\"href\":\"/assets/index-D8FsfUHh.css\",\"data-rsc-css-href\":\"/assets/index-D8FsfUHh.css\"}],\"$undefined\"],[\"$\",\"html\",null,{\"lang\":\"es\",\"children\":[\"$\",\"body\",null,{\"className\":\"antialiased\",\"children\":[\"$\",\"$L2\",null,{}]}]}]],null],\"route:/\":[[[\"$\",\"meta\",null,{\"charSet\":\"utf-8\"}],[[\"$\",\"title\",\"0\",{\"children\":\"Rapo Creative — Formulario de postulación\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Formulario de postulación para creadores de Rapo Creative.\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\"Rapo Creative — Postulación para Creadores\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Completá tu postulación para trabajar con Rapo Creative.\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:image\",\"content\":\"https://postulacion.rapocreative.com.ar/og.png\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:image:width\",\"content\":\"1731\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:image:height\",\"content\":\"909\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:image:alt\",\"content\":\"Rapo Creative — Postulación para Creadores\"}],[\"$\",\"meta\",\"9\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"10\",{\"name\":\"twitter:title\",\"content\":\"Rapo Creative — Postulación para Creadores\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:description\",\"content\":\"Completá tu postulación para trabajar con Rapo Creative.\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:image\",\"content\":\"https://postulacion.rapocreative.com.ar/og.png\"}],[\"$\",\"link\",\"13\",{\"rel\":\"shortcut icon\",\"href\":\"https://postulacion.rapocreative.com.ar/assets/rapo-creative-logo.png\"}],[\"$\",\"link\",\"14\",{\"rel\":\"icon\",\"href\":\"https://postulacion.rapocreative.com.ar/assets/rapo-creative-logo.png\"}]],[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]],[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"layout:/\",\"parallelSlots\":\"$undefined\",\"children\":[\"$\",\"$L5\",null,{\"children\":[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"page:/\"}]}]}]}]}]],\"__layoutFlags\":{\"layout:/\":\"s\"},\"__artifactCompatibility\":{\"schemaVersion\":1,\"graphVersion\":\"app-route-graph:4uhn5s1wvoptc\",\"deploymentVersion\":\"45e7348b-f422-4329-b0f1-03eb46e44d82\",\"appElementsSchemaVersion\":1,\"rscPayloadSchemaVersion\":1,\"rootBoundaryId\":\"/\",\"renderEpoch\":null}}\n6:I[\"6f1a16c9bbfa\",[],\"default\",1]\n1:[\"$\",\"$L6\",null,{}]\n")</script><script>self.__VINEXT_RSC_DONE__=true</script>
