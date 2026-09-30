@@ -14,15 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch original form
+      - name: Fetch original form assets
         run: |
+          mkdir -p original-assets
           curl -L --fail --retry 3 -A "Mozilla/5.0" "https://formulario.rapocreative.com.ar/" -o original-source.html
-          echo "Fetched bytes:"
-          wc -c original-source.html
-      - name: Commit captured source
+          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/index-D8FsfUHh.css" -o original-assets/original.css
+          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/rapo-application-form-CdAP70Q3.js" -o original-assets/original-form.js
+          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/rapo-creative-logo.png" -o original-assets/rapo-creative-logo.png
+          wc -c original-source.html original-assets/original.css original-assets/original-form.js original-assets/rapo-creative-logo.png
+      - name: Commit captured source and assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add original-source.html
-          git diff --cached --quiet || git commit -m "Capture original form source"
+          git add original-source.html original-assets/
+          git diff --cached --quiet || git commit -m "Capture original form assets"
           git push
