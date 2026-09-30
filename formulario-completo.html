@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rapo Creative — Postulación para Creadores (Prueba)</title>
+<style>
+:root{--bg:#0E0D12;--panel:#17151d;--panel2:#1d1a23;--gold:#E3A63D;--cream:#F5EFE3;--muted:#A8A3AE;--line:#332e3b;--ok:#b9efc8;--err:#ffc2c2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,rgba(227,166,61,.12),transparent 26rem),var(--bg);color:var(--cream);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+main{width:min(960px,calc(100% - 24px));margin:0 auto;padding:34px 0 70px}.hero{padding:8px 4px 22px}.brand{color:var(--gold);font-size:12px;letter-spacing:.18em;font-weight:800}.hero h1{margin:5px 0 10px;font-size:clamp(30px,5vw,48px);line-height:1.08}.hero p{color:var(--muted);max-width:720px}.test{display:inline-block;margin-top:8px;padding:8px 11px;border-radius:999px;background:rgba(227,166,61,.10);border:1px solid rgba(227,166,61,.35);color:#f3d69c;font-size:12px;font-weight:700}
+.langs{display:flex;gap:7px;margin-top:18px}.lang{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:7px 12px;font-weight:800;cursor:pointer}.lang.active{background:var(--gold);color:#17131b;border-color:var(--gold)}
+form{display:grid;gap:18px}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.heading{display:flex;gap:13px;align-items:flex-start;margin-bottom:19px}.num{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:rgba(227,166,61,.12);color:var(--gold);font-weight:800;font-size:12px}.heading h2{margin:0;font-size:20px}.heading p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.full{grid-column:1/-1}
+label{display:grid;gap:7px;color:#eee7dc;font-size:14px;font-weight:700}input,select,textarea{width:100%;border:1px solid #3a3442;background:#111017;color:var(--cream);border-radius:11px;padding:12px 13px;font:inherit;outline:none}textarea{resize:vertical;min-height:74px}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(227,166,61,.12)}input::placeholder,textarea::placeholder{color:#746e7b}
+.check{display:flex;align-items:flex-start;gap:10px}.check input{width:19px;height:19px;margin-top:2px;accent-color:var(--gold)}.check label{display:block;font-weight:500}
+button.submit{width:100%;border:0;border-radius:13px;padding:16px;background:var(--gold);color:#17131b;font-size:16px;font-weight:900;cursor:pointer}button.submit:disabled{opacity:.6;cursor:not-allowed}
+#result{display:none;padding:14px;border-radius:11px;font-weight:700}.ok{display:block!important;background:#13371f;color:var(--ok);border:1px solid #285d38}.err{display:block!important;background:#3c1717;color:var(--err);border:1px solid #704040}
+.note{text-align:center;color:var(--muted);font-size:12px;margin:0}.hp{display:none!important}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:17px}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <div class="brand">RAPO CREATIVE</div>
+  <h1 id="pageTitle">Postulación para Creadores</h1>
+  <p id="pageIntro">Completá el formulario con información real y actualizada.</p>
+  <span class="test">COPIA DE PRUEBA · EL ORIGINAL NO SE MODIFICA</span>
+  <div class="langs">
+    <button class="lang active" type="button" data-lang="ES">ES</button>
+    <button class="lang" type="button" data-lang="EN">EN</button>
+    <button class="lang" type="button" data-lang="PT">PT</button>
+  </div>
+</section>
+
+<form id="applicationForm">
+<input type="hidden" name="access_key" value="8ae5354d-b892-465c-84c2-dd9c4e1b7db2">
+<input type="hidden" name="subject" value="Nueva postulación Rapo Creative">
+<input type="hidden" name="Idioma" id="idioma" value="ES">
+<input type="checkbox" name="botcheck" class="hp">
+
+<section class="card">
+<div class="heading"><div class="num">01</div><div><h2>Datos básicos</h2><p>Información personal y de contacto.</p></div></div>
+<div class="grid">
+<label>Nombre completo *<input name="Nombre completo" autocomplete="name" required></label>
+<label>Edad *<input type="number" name="Edad" min="18" max="99" required></label>
+<label>Nacionalidad *<input name="Nacionalidad" required></label>
+<label>Email *<input type="email" name="Email" autocomplete="email" required></label>
+<label class="full">Teléfono *<input type="tel" name="Teléfono" autocomplete="tel" required></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">02</div><div><h2>Redes sociales</h2><p>Podés escribir el usuario, pegar el enlace o indicar “No”.</p></div></div>
+<div class="grid">
+<label>Instagram *<input name="Instagram" placeholder="@usuario o enlace" required></label>
+<label>Seguidores Instagram *<input type="number" name="Seguidores Instagram" min="0" required></label>
+<label>Telegram<input name="Telegram" placeholder="@usuario, enlace o No"></label>
+<label>TikTok<input name="TikTok" placeholder="@usuario, enlace o No"></label>
+<label>Seguidores TikTok<input type="number" name="Seguidores TikTok" min="0"></label>
+<label>Twitter/X<input name="Twitter/X" placeholder="@usuario, enlace o No"></label>
+<label>Seguidores Twitter/X<input type="number" name="Seguidores Twitter/X" min="0"></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">03</div><div><h2>Recursos y disponibilidad</h2><p>Herramientas, tiempo disponible y expectativas.</p></div></div>
+<div class="grid">
+<label>Smartphone *<input name="Smartphone" required></label>
+<label>Computadora e internet *
+<select name="Computadora e internet" required><option value="">Seleccionar</option><option>Tengo ambos</option><option>Solo computadora</option><option>Solo internet</option><option>No tengo</option></select></label>
+<label class="full">Disponibilidad *<textarea name="Disponibilidad" required></textarea></label>
+<label>Velocidad de respuesta *
+<select name="Velocidad de respuesta" required><option value="">Seleccionar</option><option>Rápido</option><option>Normal</option><option>Limitado</option></select></label>
+<label>Ingreso deseado en USD *<input type="number" name="Ingreso deseado en USD" min="0" step="1" required></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">04</div><div><h2>Producción de contenido</h2><p>Cantidad aproximada que podrías producir.</p></div></div>
+<div class="grid">
+<label>Fotos para todo público<input type="number" name="Fotos para todo público" min="0"></label>
+<label>Fotos XXX<input type="number" name="Fotos XXX" min="0"></label>
+<label>Videos para todo público<input type="number" name="Videos para todo público" min="0"></label>
+<label>Videos XXX<input type="number" name="Videos XXX" min="0"></label>
+<label>Disfruta fotos y videos *
+<select name="Disfruta fotos y videos" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">05</div><div><h2>Viajes y lugar de grabación</h2><p>Disponibilidad para producir contenido.</p></div></div>
+<div class="grid">
+<label>Puede viajar *
+<select name="Puede viajar" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
+<label class="full">Comentario de viaje<textarea name="Comentario de viaje"></textarea></label>
+<label>Puede grabar en casa *
+<select name="Puede grabar en casa" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
+<label>Lugar de grabación<input name="Lugar de grabación"></label>
+<label>Tatuajes<input name="Tatuajes" placeholder="No / Sí, indicar zonas"></label>
+<label>Piercings<input name="Piercings" placeholder="No / Sí, indicar zonas"></label>
+<label>Nivel de inglés *
+<select name="Nivel de inglés" required><option value="">Seleccionar</option><option>0</option><option>Básico</option><option>Intermedio</option><option>Avanzado</option></select></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">06</div><div><h2>Experiencia en OnlyFans</h2><p>Experiencia previa y modalidad de trabajo.</p></div></div>
+<div class="grid">
+<label>Experiencia en OnlyFans *
+<select name="Experiencia en OnlyFans" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
+<label>Ventas del último mes en USD<input type="number" name="Ventas del último mes en USD" min="0" step="0.01"></label>
+<label>Cuentas gestionadas<input type="number" name="Cuentas gestionadas" min="0"></label>
+<label>Modalidad de trabajo *
+<select name="Modalidad de trabajo" required><option value="">Seleccionar</option><option>Sola</option><option>Con agencia</option><option>Con equipo</option></select></label>
+<label>Permiso de agencia
+<select name="Permiso de agencia"><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>No aplica</option></select></label>
+<label>Acceso a las cuentas *
+<select name="Acceso a las cuentas" required><option value="">Seleccionar</option><option>Mantener acceso</option><option>Acceso compartido</option><option>A definir</option></select></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">07</div><div><h2>Límites e intereses</h2><p>Preferencias y límites personales.</p></div></div>
+<div class="grid">
+<label class="full">Límites de contenido *<textarea name="Límites de contenido" required></textarea></label>
+<label class="full">Hobbies<textarea name="Hobbies"></textarea></label>
+<label>Contenido SFW con hobbies *
+<select name="Contenido SFW con hobbies" required><option value="">Seleccionar</option><option>Sí</option><option>No</option></select></label>
+<label>Países a bloquear *<input name="Países a bloquear" required></label>
+<label>Acepta caracterización *
+<select name="Acepta caracterización" required><option value="">Seleccionar</option><option>Sí</option><option>No</option><option>Depende</option></select></label>
+</div>
+</section>
+
+<section class="card">
+<div class="heading"><div class="num">08</div><div><h2>Consentimiento</h2><p>Confirmación final de la postulación.</p></div></div>
+<div class="check">
+<input id="consent" type="checkbox" name="Consentimiento" value="Sí" required>
+<label for="consent">Consentimiento *</label>
+</div>
+</section>
+
+<div id="result"></div>
+<button class="submit" id="submitBtn" type="submit">ENVIAR POSTULACIÓN DE PRUEBA</button>
+<p class="note">Esta copia usa Web3Forms. El formulario original de formulario.rapocreative.com.ar permanece sin cambios.</p>
+</form>
+</main>
+<script>
+const form=document.getElementById('applicationForm');
+const result=document.getElementById('result');
+const btn=document.getElementById('submitBtn');
+const idioma=document.getElementById('idioma');
+document.querySelectorAll('.lang').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.lang').forEach(x=>x.classList.remove('active'));
+ b.classList.add('active'); idioma.value=b.dataset.lang;
+}));
+form.addEventListener('submit',async(e)=>{
+ e.preventDefault(); result.className=''; result.style.display='none'; result.textContent='';
+ if(!form.checkValidity()){form.reportValidity();return}
+ btn.disabled=true;btn.textContent='ENVIANDO...';
+ try{
+  const obj=Object.fromEntries(new FormData(form).entries());
+  obj.Email=obj.Email||''; obj.email=obj.Email;
+  const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(obj)});
+  const data=await res.json().catch(()=>({}));
+  if(res.ok&&data.success){result.textContent='✓ Postulación enviada correctamente. Revisá creativerapo@gmail.com.';result.className='ok';form.reset();idioma.value='ES'}
+  else{result.textContent='Error Web3Forms: '+(data.message||('HTTP '+res.status));result.className='err'}
+ }catch(err){result.textContent='Error de conexión: '+err.message;result.className='err'}
+ finally{btn.disabled=false;btn.textContent='ENVIAR POSTULACIÓN DE PRUEBA'}
+});
+</script>
+</body>
+</html>
