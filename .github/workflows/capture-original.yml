@@ -1,0 +1,28 @@
+name: Capture original form source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/capture-original.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch original form
+        run: |
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://formulario.rapocreative.com.ar/" -o original-source.html
+          echo "Fetched bytes:"
+          wc -c original-source.html
+      - name: Commit captured source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add original-source.html
+          git diff --cached --quiet || git commit -m "Capture original form source"
+          git push
