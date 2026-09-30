@@ -16,16 +16,28 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch original form assets
         run: |
-          mkdir -p original-assets
-          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://formulario.rapocreative.com.ar/" -o original-source.html
-          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/index-D8FsfUHh.css" -o original-assets/original.css
-          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/rapo-application-form-CdAP70Q3.js" -o original-assets/original-form.js
-          curl -L --fail --retry 3 "https://formulario.rapocreative.com.ar/assets/rapo-creative-logo.png" -o original-assets/rapo-creative-logo.png
-          wc -c original-source.html original-assets/original.css original-assets/original-form.js original-assets/rapo-creative-logo.png
+          mkdir -p original-assets assets
+          base="https://formulario.rapocreative.com.ar"
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "$base/" -o original-source.html
+          for f in \
+            index-D8FsfUHh.css \
+            layout-segment-context-DmSmrq-c.js \
+            rolldown-runtime-S-ySWqyJ.js \
+            index-DpbpyHqc.js \
+            framework-CXnKph_e.js \
+            rapo-application-form-CdAP70Q3.js \
+            rapo-creative-logo.png
+          do
+            curl -L --fail --retry 3 "$base/assets/$f" -o "assets/$f"
+          done
+          cp assets/index-D8FsfUHh.css original-assets/original.css
+          cp assets/rapo-application-form-CdAP70Q3.js original-assets/original-form.js
+          cp assets/rapo-creative-logo.png original-assets/rapo-creative-logo.png
+          wc -c original-source.html assets/*
       - name: Commit captured source and assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add original-source.html original-assets/
-          git diff --cached --quiet || git commit -m "Capture original form assets"
+          git add original-source.html original-assets/ assets/
+          git diff --cached --quiet || git commit -m "Capture complete original form assets"
           git push
