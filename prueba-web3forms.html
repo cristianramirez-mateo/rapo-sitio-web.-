@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prueba Web3Forms — Rapo Creative</title>
+<style>
+body{margin:0;background:#0E0D12;color:#F5EFE3;font-family:Arial,sans-serif}
+main{max-width:720px;margin:40px auto;padding:20px}
+.card{background:#17151d;border:1px solid #342f3a;border-radius:18px;padding:24px}
+h1{margin:0 0 8px}.gold{color:#E3A63D}p{color:#aaa3af;line-height:1.5}
+label{display:block;margin:16px 0 7px;font-weight:700}
+input,textarea{width:100%;box-sizing:border-box;padding:13px;border-radius:10px;border:1px solid #403947;background:#111017;color:#fff}
+button{width:100%;padding:15px;margin-top:22px;border:0;border-radius:11px;background:#E3A63D;color:#111;font-weight:800;font-size:16px;cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
+#result{margin-top:16px;padding:13px;border-radius:10px;display:none}
+.ok{display:block!important;background:#13371f;color:#b9efc8;border:1px solid #285d38}
+.err{display:block!important;background:#3c1717;color:#ffc2c2;border:1px solid #704040}
+small{color:#aaa3af}
+</style>
+</head>
+<body>
+<main>
+<div class="card">
+<div class="gold"><strong>RAPO CREATIVE</strong></div>
+<h1>Prueba de envío Web3Forms</h1>
+<p>Esta página es independiente y <strong>no modifica el formulario original</strong>.</p>
+<form id="testForm">
+<input type="hidden" name="access_key" value="8ae5354d-b892-465c-84c2-dd9c4e1b7db2">
+<input type="hidden" name="subject" value="PRUEBA WEB3FORMS - Rapo Creative">
+<input type="checkbox" name="botcheck" style="display:none">
+<label>Nombre completo *</label>
+<input name="name" required>
+<label>Edad *</label>
+<input type="number" min="18" name="Edad" required>
+<label>Email *</label>
+<input type="email" name="email" required>
+<label>Instagram *</label>
+<input type="url" name="Instagram" placeholder="https://instagram.com/..." required>
+<label>Mensaje de prueba</label>
+<textarea name="message">Prueba de envío desde Rapo Creative.</textarea>
+<label><input type="checkbox" required style="width:auto"> Confirmo que soy mayor de 18 años.</label>
+<button id="sendBtn" type="submit">ENVIAR PRUEBA</button>
+</form>
+<div id="result"></div>
+<p><small>El resultado aparecerá acá mismo. No te enviará a FormSubmit ni a otra página.</small></p>
+</div>
+</main>
+<script>
+const form=document.getElementById('testForm');
+const result=document.getElementById('result');
+const btn=document.getElementById('sendBtn');
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  result.className=''; result.style.display='none'; result.textContent='';
+  btn.disabled=true; btn.textContent='ENVIANDO...';
+  try{
+    const fd=new FormData(form);
+    const obj=Object.fromEntries(fd.entries());
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(obj)
+    });
+    const data=await res.json().catch(()=>({}));
+    if(res.ok && data.success){
+      result.textContent='✓ Envío correcto. Revisá creativerapo@gmail.com.';
+      result.className='ok';
+      form.reset();
+    }else{
+      result.textContent='Error Web3Forms: '+(data.message || ('HTTP '+res.status));
+      result.className='err';
+    }
+  }catch(err){
+    result.textContent='Error de conexión: '+err.message;
+    result.className='err';
+  }finally{
+    btn.disabled=false; btn.textContent='ENVIAR PRUEBA';
+  }
+});
+</script>
+</body>
+</html>
